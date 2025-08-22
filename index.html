@@ -1,1 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IT Support Team</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <h1>Meet Your IT Support Team</h1>
+    <div class="school-selector">
+      <label for="school-select">Select Your School:</label>
+      <select id="school-select">
+        <option value="">-- Choose a School --</option>
+        <option value="BPMS">BPMS</option>
+        <option value="BPES">BPES</option>
+        <option value="AAES">AAES</option>
+        <option value="AAMS">AAMS</option>
+        <option value="AAHS">AAHS</option>
+        <option value="ECES">ECES</option>
+        <option value="ECMS">ECMS</option>
+        <option value="HFES">HFES</option>
+        <option value="HFMS">HFMS</option>
+        <option value="HFHS">HFHS</option>
+      </select>
+    </div>
+  </header>
 
+  <!-- Team Section -->
+  <section class="team-section">
+    <div class="team-grid">
+      <!-- Card Example -->
+      <div class="team-card" data-school="BPMS AAES">
+        <img src="img/john.jpg" alt="John Doe">
+        <h2>John Doe</h2>
+        <p><strong>Role:</strong> IT Specialist</p>
+        <p><strong>Schools:</strong> BPMS, AAES</p>
+      </div>
+
+      <div class="team-card" data-school="HFHS HFMS">
+        <img src="img/jane.jpg" alt="Jane Smith">
+        <h2>Jane Smith</h2>
+        <p><strong>Role:</strong> Network Technician</p>
+        <p><strong>Schools:</strong> HFHS, HFMS</p>
+      </div>
+
+      <div class="team-card" data-school="ECES ECMS">
+        <img src="img/mark.jpg" alt="Mark Johnson">
+        <h2>Mark Johnson</h2>
+        <p><strong>Role:</strong> Support Technician</p>
+        <p><strong>Schools:</strong> ECES, ECMS</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Filter team cards based on school selection
+    const schoolSelect = document.getElementById('school-select');
+    const teamCards = document.querySelectorAll('.team-card');
+
+    schoolSelect.addEventListener('change', function() {
+      const selectedSchool = this.value;
+      teamCards.forEach(card => {
+        if (!selectedSchool || card.dataset.school.includes(selectedSchool)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
