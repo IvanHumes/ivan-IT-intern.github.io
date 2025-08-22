@@ -62,20 +62,32 @@
 
 
   <script>
-    // Filter team cards based on school selection
-    const schoolSelect = document.getElementById('school-select');
-    const teamCards = document.querySelectorAll('.team-card');
+  // Filter team cards based on school selection
+  const schoolSelect = document.getElementById('school-select');
+  const teamCards = document.querySelectorAll('.team-card');
 
-    schoolSelect.addEventListener('change', function() {
-      const selectedSchool = this.value;
-      teamCards.forEach(card => {
-        if (!selectedSchool || card.dataset.school.includes(selectedSchool)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+  schoolSelect.addEventListener('change', function() {
+    const selectedSchool = this.value;
+
+    // Define which schools belong to which person
+    const heatherSchools = ["BPMS", "BPES", "ECES", "ECMS"];
+    const nickSchools = ["AAES", "AAMS", "HFES", "HFHS", "HFMS"];
+    const bothSchools = ["AAHS"];
+
+    teamCards.forEach(card => {
+      const name = card.querySelector('h2').textContent.trim();
+
+      if (!selectedSchool) {
+        card.style.display = 'block'; // Show all if no school selected
+      } else if (heatherSchools.includes(selectedSchool)) {
+        card.style.display = (name === "Heather Pascale") ? 'block' : 'none';
+      } else if (nickSchools.includes(selectedSchool)) {
+        card.style.display = (name === "Nick Chuzas") ? 'block' : 'none';
+      } else if (bothSchools.includes(selectedSchool)) {
+        card.style.display = (name === "Heather Pascale" || name === "Nick Chuzas") ? 'block' : 'none';
+      } else {
+        card.style.display = 'none'; // Hide all if not matching any rule
+      }
     });
-  </script>
-</body>
-</html>
+  });
+</script>
