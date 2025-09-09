@@ -62,14 +62,12 @@
 
 
   <script>
-  // Filter team cards based on school selection
   const schoolSelect = document.getElementById('school-select');
   const teamCards = document.querySelectorAll('.team-card');
 
   schoolSelect.addEventListener('change', function() {
     const selectedSchool = this.value;
 
-    // Define which schools belong to which person
     const heatherSchools = ["BPMS", "BPES", "ECES", "ECMS"];
     const nickSchools = ["AAES", "AAMS", "HFES", "HFHS", "HFMS"];
     const bothSchools = ["AAHS"];
