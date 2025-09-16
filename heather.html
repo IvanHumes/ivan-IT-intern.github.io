@@ -5,17 +5,99 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Heather Pascale - IT Support Team</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .profile-container {
+      max-width: 620px;
+      margin: 48px auto 0 auto;
+      padding: 32px;
+      background: #f8faff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,85,165,0.10);
+      text-align: center;
+    }
+    .profile-images {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .profile-images img {
+      max-width: 230px;
+      border-radius: 14px;
+      box-shadow: 0 2px 14px rgba(0,0,0,0.13);
+      border: 3px solid #0055a5;
+      object-fit: cover;
+      background: #fff;
+    }
+    .profile-container h1 {
+      color: #0055a5;
+      font-size: 2.3rem;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-weight: 800;
+      margin-bottom: 6px;
+      letter-spacing: 0.04em;
+    }
+    .profile-container h2 {
+      color: #003d7a;
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .profile-container p, .profile-container section {
+      color: #222;
+      font-size: 1.13rem;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .about-header {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #0055a5;
+      margin-top: 16px;
+      margin-bottom: 10px;
+      letter-spacing: 0.02em;
+    }
+    .contact-header {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0077cc;
+      margin-top: 20px;
+      margin-bottom: 8px;
+      letter-spacing: 0.01em;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 32px;
+      color: #fff;
+      background: #0055a5;
+      padding: 10px 26px;
+      border-radius: 9px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.14);
+    }
+    .back-link:hover, .back-link:focus {
+      background: #003d7a;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.21);
+    }
+  </style>
 </head>
 <body>
-  <header class="header">
+  <div class="profile-container">
     <h1>Heather Pascale</h1>
-  </header>
-  <main>
-    <img src="img/heather-pascale.jpg" alt="Heather Pascale" style="max-width:250px; border-radius:10px;">
     <h2>Senior Associate</h2>
     <p><strong>Schools:</strong> BPMS, BPES, ECES, ECMS</p>
+    <div class="profile-images">
+      <img src="img/PXL_20250531_194704187.jpg" alt="Heather Pascale smiling outdoors">
+      <img src="img/PXL_20250530_172547852.MP.jpg" alt="Heather Pascale tech backpack">
+    </div>
     <section>
-      <h3>About Heather</h3>
+      <div class="about-header">About Heather</div>
       <p>
         Hey there! I’m Heather, your IT gal!<br>
         You’ll see me bopping around your school throughout the year and I’m here to help.<br><br>
@@ -27,10 +109,10 @@
       </p>
     </section>
     <section>
-      <h3>Contact</h3>
+      <div class="contact-header">Contact</div>
       <p>Email: heather.pascale@example.com<br>Phone: (555) 123-4567</p>
     </section>
-    <a href="index.html">← Back to Team</a>
-  </main>
+    <a href="index.html" class="back-link">← Back to Team</a>
+  </div>
 </body>
 </html>
