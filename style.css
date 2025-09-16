@@ -1,15 +1,44 @@
+.associate-buttons {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+
 .associate-btn {
-  padding: 16px 32px;
-  font-size: 1.2rem;
-  border-radius: 8px;
+  padding: 20px 36px;
+  font-size: 1.15rem;
+  border-radius: 12px;
   background: #0055a5;
   color: #fff;
   border: none;
   cursor: pointer;
   text-decoration: none;
-  transition: background 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
   display: inline-block;
+  margin: 8px 0;
+  font-weight: 600;
+  letter-spacing: 0.03em;
 }
-.associate-btn:hover {
+
+.associate-btn:hover, .associate-btn:focus {
   background: #003d7a;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+  transform: translateY(-2px) scale(1.04);
+  outline: none;
+}
+
+@media (max-width: 600px) {
+  .associate-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+  .associate-btn {
+    width: 90vw;
+    max-width: 360px;
+    font-size: 1rem;
+  }
 }
