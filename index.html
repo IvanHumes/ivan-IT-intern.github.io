@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Header Section -->
   <header class="header">
     <h1>Meet Your Connecticut IT Support Team</h1>
     <div class="school-selector">
@@ -27,143 +26,46 @@
       </select>
     </div>
   </header>
-
-  <!-- Team Section -->
-  <section class="team-section">
-    <div class="team-grid">
-      <!-- Card Example -->
-     <div class="team-card" 
-     data-name="Heather Pascale"
-     data-role="Senior Associate"
-     data-schools="BPMS, BPES, ECES, ECMS"
-     data-img="img/heather-pascale.jpg"
-     data-about="Hey there! I’m Heather, your IT gal!<br>
-     data-contact="Email: heather.pascale@example.com<br>Phone: (555) 123-4567">
-  <h2>Heather Pascale</h2>
-  <p><strong>Role:</strong> Senior Associate</p>
-  <p><strong>Schools:</strong> BPMS, BPES, ECES, ECMS</p>
-</div>
-
-      <div class="team-card"
-           data-name="Nick Chuzas"
-           data-role="Senior Associate"
-           data-schools="HFHS, HFMS, AAES, AAMS"
-           data-img="img/nick-chuzas.jpg"
-           data-about="Nick specializes in network administration and has been with the team for 10 years."
-           data-contact="Email: nickchuzas@achievementfirst.org<br>Phone: (555) 987-6543">
-        <h2>Nick Chuzas</h2>
-        <p><strong>Role:</strong> Senior Associate</p>
-        <p><strong>Schools:</strong> HFHS, HFMS, AAES, AAMS</p>
-      </div>
-
-      <div class="team-card"
-           data-name="Benardo Lora"
-           data-role="Senior Team Leader"
-           data-schools="Oversees all schools"
-           data-img="img/benardo-lora.jpg"
-           data-about="Benardo leads the IT support team and ensures smooth operations across all schools."
-           data-contact="Email: benardolora@achievementfirst.org<br>Phone: (555) 555-5555">
-        <h2>Benardo Lora</h2>
-        <p><strong>Role:</strong> Senior Team Leader</p>
-        <p><strong>Schools:</strong> Oversees all schools</p>
-      </div>
+  
+  <main>
+    <div class="associate-buttons" style="display: flex; gap: 20px; justify-content: center; margin: 40px 0;">
+      <a href="heather.html" class="associate-btn" data-name="Heather Pascale">Heather Pascale</a>
+      <a href="nick.html" class="associate-btn" data-name="Nick Chuzas">Nick Chuzas</a>
+      <a href="benardo.html" class="associate-btn" data-name="Benardo Lora">Benardo Lora</a>
     </div>
-  </section>
-
+  </main>
+  
   <footer class="footer" style="text-align: center;">
     <img src="img/achievementfirst.png" alt="Achievement First Logo" style="max-width: 400px; margin-top: 30px;">
   </footer>
 
-  <!-- Profile Modal -->
-  <div id="profile-modal" class="modal" style="display:none;">
-    <div class="modal-content">
-      <span class="close-btn" id="close-modal">&times;</span>
-      <img id="modal-img" src="" alt="Associate Photo" style="max-width: 200px; border-radius: 10px;">
-      <h2 id="modal-name"></h2>
-      <p><strong id="modal-role"></strong></p>
-      <p><strong>Schools:</strong> <span id="modal-schools"></span></p>
-      <p id="modal-about"></p>
-      <div id="modal-contact"></div>
-    </div>
-  </div>
-
-  <!-- ... -->
-<div class="team-card" onclick="location.href='heather.html'" style="cursor:pointer;">
-  <h2>Heather Pascale</h2>
-  <p><strong>Role:</strong> Senior Associate</p>
-  <p><strong>Schools:</strong> BPMS, BPES, ECES, ECMS</p>
-</div>
-<div class="team-card" onclick="location.href='nick.html'" style="cursor:pointer;">
-  <h2>Nick Chuzas</h2>
-  <p><strong>Role:</strong> Senior Associate</p>
-  <p><strong>Schools:</strong> HFHS, HFMS, AAES, AAMS</p>
-</div>
-<div class="team-card" onclick="location.href='benardo.html'" style="cursor:pointer;">
-  <h2>Benardo Lora</h2>
-  <p><strong>Role:</strong> Senior Team Leader</p>
-  <p><strong>Schools:</strong> Oversees all schools</p>
-</div>
-<!-- ... -->
-
   <script>
   const schoolSelect = document.getElementById('school-select');
-  const teamCards = document.querySelectorAll('.team-card');
-
-  // School filter logic
+  const associateButtons = document.querySelectorAll('.associate-btn');
+  
   schoolSelect.addEventListener('change', function() {
     const selectedSchool = this.value;
 
+    // School assignments
     const heatherSchools = ["BPMS", "BPES", "ECES", "ECMS"];
     const nickSchools = ["AAES", "AAMS", "HFES", "HFHS", "HFMS"];
     const bothSchools = ["AAHS"];
 
-    teamCards.forEach(card => {
-      const name = card.querySelector('h2').textContent.trim();
-
+    associateButtons.forEach(btn => {
+      const name = btn.getAttribute('data-name');
       if (!selectedSchool) {
-        card.style.display = 'block';
+        btn.style.display = 'inline-block';
       } else if (heatherSchools.includes(selectedSchool)) {
-        card.style.display = (name === "Heather Pascale") ? 'block' : 'none';
+        btn.style.display = (name === "Heather Pascale") ? 'inline-block' : 'none';
       } else if (nickSchools.includes(selectedSchool)) {
-        card.style.display = (name === "Nick Chuzas") ? 'block' : 'none';
+        btn.style.display = (name === "Nick Chuzas") ? 'inline-block' : 'none';
       } else if (bothSchools.includes(selectedSchool)) {
-        card.style.display = (name === "Heather Pascale" || name === "Nick Chuzas") ? 'block' : 'none';
+        btn.style.display = (name === "Heather Pascale" || name === "Nick Chuzas") ? 'inline-block' : 'none';
       } else {
-        card.style.display = 'none';
+        btn.style.display = 'none';
       }
     });
   });
-
-  // Profile Modal logic
-  const modal = document.getElementById('profile-modal');
-  const closeModal = document.getElementById('close-modal');
-  const modalImg = document.getElementById('modal-img');
-  const modalName = document.getElementById('modal-name');
-  const modalRole = document.getElementById('modal-role');
-  const modalSchools = document.getElementById('modal-schools');
-  const modalAbout = document.getElementById('modal-about');
-  const modalContact = document.getElementById('modal-contact');
-
-  teamCards.forEach(card => {
-    card.addEventListener('click', function() {
-      modal.style.display = 'block';
-      modalImg.src = card.getAttribute('data-img');
-      modalName.textContent = card.getAttribute('data-name');
-      modalRole.textContent = "Role: " + card.getAttribute('data-role');
-      modalSchools.textContent = card.getAttribute('data-schools');
-      modalAbout.textContent = card.getAttribute('data-about');
-      modalContact.innerHTML = card.getAttribute('data-contact');
-    });
-  });
-
-  closeModal.onclick = function() {
-    modal.style.display = 'none';
-  };
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = 'none';
-    }
-  };
   </script>
 </body>
 </html>
